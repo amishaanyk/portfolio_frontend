@@ -6,7 +6,7 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 // Import icons or use SVGs for Gmail and LinkedIn
-import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaArrowRight } from 'react-icons/fa';
 
 export const Contact = () => {
     const [status, setStatus] = useState({});
@@ -45,6 +45,7 @@ export const Contact = () => {
                                                 <button className="contact-button" onClick={handleGmailClick}>
                                                     <FaEnvelope size={20} />
                                                     <span>Contact via Gmail</span>
+                                                    <FaArrowRight size={16} className="arrow-icon" />
                                                 </button>
                                             </div>
                                         </Col>
@@ -54,6 +55,7 @@ export const Contact = () => {
                                                 <button className="contact-button" onClick={handleLinkedInClick}>
                                                     <FaLinkedin size={20} />
                                                     <span>Contact via LinkedIn</span>
+                                                    <FaArrowRight size={16} className="arrow-icon" />
                                                 </button>
                                             </div>
                                         </Col>

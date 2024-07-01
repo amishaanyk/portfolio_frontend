@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import axios from "axios";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-
-// Import icons or use SVGs for Gmail and LinkedIn
 import { FaEnvelope, FaLinkedin, FaArrowRight } from 'react-icons/fa';
 
 export const Contact = () => {
@@ -38,34 +36,27 @@ export const Contact = () => {
                             {({ isVisible }) =>
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <h2>Get In Touch</h2>
-                                    <Row>
-                                        <Col sm={12} className="mb-3">
-                                            {/* Gmail Button */}
-                                            <div className="contact-button-wrapper">
-                                                <button className="contact-button" onClick={handleGmailClick}>
-                                                    <FaEnvelope size={20} />
-                                                    <span>Contact via Gmail</span>
-                                                    <FaArrowRight size={16} className="arrow-icon" />
-                                                </button>
-                                            </div>
-                                        </Col>
-                                        <Col sm={12}>
-                                            {/* LinkedIn Button */}
-                                            <div className="contact-button-wrapper">
-                                                <button className="contact-button" onClick={handleLinkedInClick}>
-                                                    <FaLinkedin size={20} />
-                                                    <span>Contact via LinkedIn</span>
-                                                    <FaArrowRight size={16} className="arrow-icon" />
-                                                </button>
-                                            </div>
-                                        </Col>
+                                    <div className="d-flex flex-column">
+                                        {/* Gmail Button */}
+                                        <Button variant="dark" className="mb-3" onClick={handleGmailClick}>
+                                            <FaEnvelope size={20} className="me-2" />
+                                            Contact via Gmail
+                                            <FaArrowRight size={16} className="ms-2" />
+                                        </Button>
+
+                                        {/* LinkedIn Button */}
+                                        <Button variant="secondary" className="mb-3" onClick={handleLinkedInClick}>
+                                            <FaLinkedin size={20} className="me-2" />
+                                            Contact via LinkedIn
+                                            <FaArrowRight size={16} className="ms-2" />
+                                        </Button>
+
+                                        {/* Status Message */}
                                         {
                                             status.message &&
-                                            <Col sm={12}>
-                                                <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                                            </Col>
+                                            <p className={status.success === false ? "text-danger" : "text-success"}>{status.message}</p>
                                         }
-                                    </Row>
+                                    </div>
                                 </div>}
                         </TrackVisibility>
                     </Col>
